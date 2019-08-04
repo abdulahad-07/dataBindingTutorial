@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Data Binding Tutorial</string>
+    <string name="dialog_quantity_title">Qty: </string>
 </resources>

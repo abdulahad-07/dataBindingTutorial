@@ -22,6 +22,11 @@ public class Product {
         this.ratings = ratings;
     }
     
+    public boolean hasSalePrice() {
+        double salePrice = sale_price.doubleValue();
+        return salePrice > 0;
+    }
+    
     public void setTitle(String title) {
         this.title = title;
     }

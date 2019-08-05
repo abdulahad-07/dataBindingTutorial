@@ -9,7 +9,7 @@ import com.example.databindingtutorial.model.Product;
 
 import java.math.BigDecimal;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements IMainActivity {
     
     ActivityMainBinding mBinding;
     Product mProduct;
@@ -23,11 +23,24 @@ public class MainActivity extends AppCompatActivity {
                 "Xiaomi Mi A2",
                 "12MP+20MP dual rear camera and 20MP front facing camera",
                 R.drawable.mobile_1,
-                new BigDecimal(17499),
-                new BigDecimal(11999),
+                new BigDecimal(349),
+                new BigDecimal(249),
                 284,
-                new BigDecimal(4)
+                new BigDecimal(3)
         );
         mBinding.setProduct(mProduct);
+        mBinding.setQuantity(1);
+        mBinding.setIMainActivity((IMainActivity)this);
+    }
+    
+    @Override
+    public void inflateQuantityDialog() {
+        ChooseQuantityDialog dialog = new ChooseQuantityDialog();
+        dialog.show(getSupportFragmentManager(), "Choose Quantity");
+    }
+    
+    @Override
+    public void setQuantity(int value) {
+        mBinding.setQuantity(value);
     }
 }
